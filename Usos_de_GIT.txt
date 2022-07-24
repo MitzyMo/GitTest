@@ -1,0 +1,146 @@
+Usos de GIT - MAC User
+
+Historial
+Almacenar Código
+Trabajo en equipo
+Cuándo se introduco un error.
+   Revisa qué commit introdujo el error.
+
+CONFIGURACIÓN
+   Theme:
+      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   Global Config:
+      git config --global user.name "Mitzy Mo" 
+      git config --global user.email mitzy.93@gmail.com 
+      git config --global core.editor "code --wait" 
+      git config --global -e
+      git config --global core.autocrlf input
+      git config --global init.defaultBranch <name>
+      git config --global help.autocorrect 1
+      git config --global rebase.autoStash true ---Review before using it.
+
+      /*Use "" For Full name*/
+      /*email */
+      /*VS Code, can not use terminal until */
+      /*To open VS Code and confirm it is the default code editor*/
+      /*Windows uses CR & LF (True), MAC only LF (input)*/
+      /*git config -h (This will get youu all Config commands)*/
+
+COMMANDS
+ls: Folders in all the files I have
+pwd: In order to see in which directory I'm located
+cd: To move between direcotries.
+cd ..: To go back, in MAC it needs an space 
+mkdir: To create a new directory + the name
+git init: If you have not configured the branch name it will leave it as Master.... to configure branch name, use:
+git branch -m <name>
+
+---
+IMPLEMENTACIÓN
+ls -a : DENTRO DEL CD GITFOLDER CD .GIT
+.           HEAD        description info        refs
+..          config      hooks       objects
+---
+ETAPAS -- para cambios, agregar files o eliminar files.
+   Computador: Todo lo que hacemos en el pc
+      git add: Move to the stage 
+   Stage:
+      git commit: Cambios selecionados pasan a commit
+   Commit
+      git push: para pasar al server
+   Server: Suele ser bitbucket o github, it depends.
+
+COMMANDOS -- git +
+   git branch: to know in which branch you are working on.
+   git add fileName.Ext: -- will add the new file or changes.
+   git status: -- will check the status of each file.
+   git status -s: short version of each file to be added.
+   git commit -m "Commit inicial": --Siempre agregar un comentario de qué se está commiting.
+   git rm fileName.Ext: -- Delete file.
+   git restore --staged fileName.Ext: -- to undo the last stage
+   git restore fileName.Ext: to restore to the previous changes.
+   git mv fileName.Ext, newFileName.Ext: Rename files 
+   git diff: shows recent changes
+   git diff --staged: shows changes in Stage
+   git log --oneline: shows 
+   git checkout -b newBranchName: to create a new branch
+   git checout branchName: to switch branch.
+   git merge branchName: MAIN branch ONLY to merge branches.
+   git cat fileName.ext: to see what is inside a file.
+   git remote add origin https://github.com/MitzyMo/GitTest.git
+      This will add the repository int
+   git push -u origin main: 
+      uploads the code and creates main branch.
+      Enter GitHub UserName: MitzyMo
+      Enter the token generated in gitHub.
+   git push -u origin newBranchName:
+      This will create a new branch in the repository.
+
+USEFULL
+   git add –A: Add all of the change files to a commit
+   git branch -vv: See where all your branches are tracking from
+   git bisect: Pinpoint exactly when in the history a commit was made
+   git commit -a -m 'commit message': Add & commit in a single command.
+   git reset /path/filename: Undo a git add
+   git add filename: Add a file that you missed to add in your last commit
+      git commit — amend
+   git checkout <SHA>:Revert repository to a previous commit
+      Use commit log to find the Commit id.
+   git revert HEAD: Undo a Git Merge
+      git revert -m 1 <SHA>: this one will revert specific merge.
+   git reflog: shows a list of all the things you have done in a project so far
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
